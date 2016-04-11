@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :admin, only: [:show]
 
   resources :sessions, only: [:new, :create, :destroy]
+
   namespace :admin do
     resources :events
     resources :attendees
