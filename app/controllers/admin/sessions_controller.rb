@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Admin::SessionsController < Admin::ApplicationController
 
   def new
   end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if admin && admin.authenticate(params[:session][:password])
       create_session(admin)
       flash[:notice] = "Welcome back"
-      redirect_to admin_path(admin)
+      redirect_to admin_admin_path(admin)
     else
       flash.now[:alert] = "invalid email/password combination"
       render :new

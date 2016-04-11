@@ -2,7 +2,7 @@
 
 <div class="row">
   <div>
-    <%= form_for :session, url: sessions_path do |f|  %>
+    <%= form_for :session, url: admin_sessions_path do |f|  %>
       <div class="form-group col-md-4">
         <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email" %>
       </div>
