@@ -3,6 +3,6 @@ class Attendee < ActiveRecord::Base
 
   has_one :ticket
 
-  def purchase_ticket
-  end
+
+
 end
