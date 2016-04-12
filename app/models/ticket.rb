@@ -1,4 +1,4 @@
 class Ticket < ActiveRecord::Base
-  belongs_to :ticket_type
+  has_many :ticket_types
   belongs_to :attendee
 end
