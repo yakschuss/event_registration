@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+
+
+  resources :attendees, only: [:new, :create] do
+    resources :tickets, only: [:new, :create]
+  end
+
   get 'events/index'
   root to: 'events#index'
 
