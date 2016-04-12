@@ -1,0 +1,9 @@
+%div
+  = @attendee.first_name
+  = @attendee.last_name
+  = @attendee.email
+  = @attendee.company
+
+
+  = link_to "Edit attendee", edit_admin_attendee_path(@attendee)
+  = link_to "Delete attendee", admin_attendee_path(@attendee), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }

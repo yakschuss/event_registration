@@ -3,8 +3,61 @@ class Admin::EventsController < ApplicationController
     @events = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     @event = Event.new
   end
-  
+
+  def create
+    @event = Event.create(event_params)
+
+    if @event.save
+      flash[:notice] = "Event was created successfully."
+      redirect_to admin_event_path(@event)
+    else
+      flash[:error] = "There was an error creating the event. Please try again."
+      render new
+    end
+
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.assign_attributes(event_params)
+
+    if @event.save
+      flash[:notice] = "Event updated."
+      redirect_to admin_event_path(@event)
+    else
+      flash[:error] = "There was an error saving the event. Please try again."
+      render :edit
+    end
+
+  end
+
+
+    def destroy
+      @event = Event.find(params[:id])
+
+      if @event.destroy
+        flash[:notice] = "\"#{@event.name}\" was deleted successfully."
+        redirect_to admin_events_path
+      else
+        flash[:error] = "There was an error deleting the event."
+        render :show
+      end
+    end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :date, :description)
+  end
 end
