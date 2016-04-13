@@ -1,3 +1,19 @@
 // Place all the styles related to the Admin::Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.event-links {
+    height: 100%;
+    vertical-align: middle;
+    color: #FFA600;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.event-links:hover {
+    color: #05084D;
+}

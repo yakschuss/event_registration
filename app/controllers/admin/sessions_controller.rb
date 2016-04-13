@@ -1,6 +1,7 @@
 class Admin::SessionsController < Admin::ApplicationController
 
   def new
+    @disable_nav = true
   end
 
   def create
@@ -22,16 +23,5 @@ class Admin::SessionsController < Admin::ApplicationController
     redirect_to root_path
   end
 
-  private
-      def create_session(admin)
-        session[:admin_id] = admin.id
-      end
 
-      def destroy_session(admin)
-        session[:admin_id] = nil
-      end
-
-      def current_user
-        Admin.find_by(id: session[:admin_id])
-      end
 end

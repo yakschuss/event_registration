@@ -1,0 +1,5 @@
+%nav.navbar
+  %a.logo{:href => "#"}
+  = link_to image_tag("ERlogo.png"), root_path
+  .links-container
+    %a.navbar-link{:href => admin_admin_path(current_user)} Dashboard
