@@ -1,9 +1,12 @@
 .form
   .form-group-columns
-    = form_for [:admin, @event]  do |f|
-      = f.text_field :name, placeholder: "Name"
-      = f.label :date
-      = f.date_select(:date , :start_year => 2016)
-      = f.text_area :description
+  = form_for [:admin, @event]  do |f|
+    = f.text_field :name, placeholder: "Name"
+    = f.label :date
+    = f.date_select(:date , :start_year => 2016)
+    = f.text_area :description
+    = fields_for :ticket_types do |b|
+      = b.text_field :level, placeholder: "Ticket Type"
+      = b.number_field :cost, placeholder: "0.00"
       /want to figure out best address verification for user input UX
-      = f.submit :save
+    = f.submit :save
