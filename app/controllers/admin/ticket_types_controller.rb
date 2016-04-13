@@ -1,5 +1,7 @@
 class Admin::TicketTypesController < Admin::ApplicationController
+before_action :require_sign_in
 before_action :ready_event
+
 
 
   def create

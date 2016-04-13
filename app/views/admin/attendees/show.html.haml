@@ -1,9 +1,11 @@
-%div
-  = @attendee.first_name
-  = @attendee.last_name
-  = @attendee.email
-  = @attendee.company
-
-
-  = link_to "Edit attendee", edit_admin_attendee_path(@attendee)
-  = link_to "Delete attendee", admin_attendee_path(@attendee), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
+.container
+  %p
+    First Name: #{@attendee.first_name}
+  %p
+    Last Name: #{@attendee.last_name}
+  %p
+    Email: #{@attendee.email}
+  %p
+    Company: #{@attendee.company}
+  = link_to "Edit attendee", edit_admin_attendee_path(@attendee), class: "button"
+  = link_to "Delete attendee", admin_attendee_path(@attendee), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "button button-delete"

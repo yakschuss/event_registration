@@ -1,6 +1,7 @@
 class Admin::SessionsController < Admin::ApplicationController
 
   def new
+    @disable_nav = true
   end
 
   def create
@@ -21,4 +22,6 @@ class Admin::SessionsController < Admin::ApplicationController
     flash[:notice] = "Successfully signed out."
     redirect_to root_path
   end
+
+
 end

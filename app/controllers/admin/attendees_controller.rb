@@ -1,4 +1,5 @@
 class Admin::AttendeesController < Admin::ApplicationController
+  before_action :require_sign_in
   def index
     @attendees = Attendee.all
   end
