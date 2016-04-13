@@ -2,4 +2,4 @@
   .row
     %h1 New Event
     = render partial: "form", locals: {event: @event}
-    
+    = render partial: "ticket_types/form", locals: {ticket_type: TicketType.new, event: @event}
