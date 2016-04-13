@@ -22,5 +22,6 @@
         .alert.alert-warning
           %button.close{"data-dismiss" => "alert", :type => "button"} ×
           = flash[:alert]
-    = render 'layouts/admin_nav' unless @disable_nav      
+    = render 'layouts/admin_nav' unless @disable_nav
+    .spacer    
     = yield

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="attendee-new">
+    <%=link_to "New Attendee", new_admin_attendee_path(@attendee), class: "button form-button" %>
+  </div>
+
+  <div class="attendee-list">
+    <ul>
+    <% @attendees.each do |attendee| %>
+      <li>
+        <%= "ID: #{attendee.id} -" %>
+        <%= link_to "#{attendee.first_name} #{attendee.last_name}", admin_attendee_path(attendee) %>
+     </li>
+     <% end %>
+   </ul>
+ </div>
+
+</div>
