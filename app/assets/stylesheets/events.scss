@@ -71,3 +71,19 @@
  max-width: 100%;
  border-radius: 5px;
 }
+
+.event-links {
+    height: 100%;
+    vertical-align: middle;
+    color: #FFA600;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.event-links:hover {
+    color: #05084D;
+}

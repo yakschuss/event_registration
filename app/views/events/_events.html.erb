@@ -3,7 +3,7 @@
     <div class="event-item column third">
       <%=link_to image_tag("http://lorempixel.com/400/200/nightlife/5"), event_path(event)%> <%# will use paperclip to add event.picture %>
       <h3>
-        <%="#{event.name}" %>
+        <%= link_to "#{event.name}", event_path(event), class: "event-links" %>
       </h3>
     </div>
 <%# add breakpoints and change class from half to desired width %>
