@@ -1,3 +1,73 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.header-content {
+    position: relative;
+    min-height: 600px;
+    background-image: url("header.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+}
+
+.header-content .header-title .header-button {
+    top: 60%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    width: 20%;
+    margin: 0 auto;
+    position: relative;
+    text-transform: none;
+    text-shadow: 0px 0px 0px;
+    letter-spacing: normal;
+    font-weight: 300;;
+}
+
+.header-content .header-title {
+    position: absolute;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 0px #000;
+}
+
+
+.container {
+ width: 80%;
+ margin: 30px auto;
+ overflow: hidden;
+}
+
+
+.event-item {
+ color: #797478;
+ float: left;
+}
+
+.event-item h3 {
+ text-transform: uppercase;
+ text-align: center;
+}
+
+.event-item img {
+ max-width: 100%;
+ border-radius: 5px;
+}
