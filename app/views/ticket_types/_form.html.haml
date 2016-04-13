@@ -1,0 +1,7 @@
+%h4
+  Ticket Type
+= form_for [:admin, event, ticket_type] do |f|
+  = f.label :level
+  = f.text_field :level, placeholder: "Enter ticket type please"
+  = f.number_field :cost, placeholder: "Price"
+  = f.submit "Save"
