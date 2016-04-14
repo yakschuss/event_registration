@@ -6,7 +6,7 @@ layout 'admin'
 
 
 
-private
+
 
 def require_sign_in
   unless current_user
