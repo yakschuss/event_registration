@@ -4,9 +4,10 @@
 
 
 
-//$(document).ready(function(){
-// var form = document.getElementsByClassName('ticket-form')
-//  $('.ticket-form-add').click(function(){
-//    $('form').clone().appendTo('.ticket-type-group');
-//  });
-//})
+$(document).ready(function(){
+ var form = document.getElementsByClassName('ticket-form')
+  $('.ticket-form-add').off().on('click', function(){
+    $('form').clone().appendTo('.ticket-type-group');
+
+  });
+})

@@ -1,12 +1,19 @@
-
 <%= form_for @attendee do |f| %>
     <%= f.text_field :first_name, autofocus: true, placeholder: "First Name" %></br>
     <%= f.text_field :last_name, placeholder: "Last Name" %></br>
-
     <%= f.email_field :email, placeholder: "Email" %></br>
     <%= f.text_field :company, placeholder: "Company" %>
   <div class="actions">
-    <div class="space"></div>
-    <%= f.submit :save %>
+    <div class="spacer"></div>
+    <%# f.submit :save, class: "button" %>
   </div>
+
+    <%= f.fields_for :ticket do |ticket_field| %>
+    <ul class="ticket-type-group">
+      <li class="ticket-form">
+
+
+      </li>
+    </ul>
+    <% end %>
 <% end %>

@@ -50,3 +50,11 @@ button a {
     color: #ffa600;
     cursor: pointer;
 }
+
+ul li {
+   list-style: none;
+}
+
+ul {
+    -webkit-padding-start: 0;
+}

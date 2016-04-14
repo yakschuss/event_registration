@@ -87,3 +87,28 @@
 .event-links:hover {
     color: #05084D;
 }
+
+
+button a {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.form-button a{
+    color: white;
+}
+
+.ticket-form-add {
+    color: #ffa600;
+    cursor: pointer;
+}
+
+ul li {
+   list-style: none;
+}
+
+ul {
+    -webkit-padding-start: 0;
+}

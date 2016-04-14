@@ -6,7 +6,6 @@ class Admin::SessionsController < Admin::ApplicationController
 
   def create
     admin = Admin.find_by(email: params[:session][:email].downcase)
-    binding.pry
     if admin && admin.authenticate(params[:session][:password])
       create_session(admin)
       flash[:notice] = "Welcome back"

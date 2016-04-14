@@ -61,7 +61,6 @@ class Admin::EventsController < Admin::ApplicationController
   private
 
   def create_ticket_types
-    binding.pry
     params[:event][:ticket_types_attributes].values.each do |ticket_type_params|
       @event.ticket_types.create(ticket_type_params)
     end

@@ -1,7 +1,7 @@
 <div class="form">
   <div class="form-group-columns">
   <%= form_for [:admin, @event]  do |f| %>
-    <%= f.text_field :name, class: "column third", placeholder: "Name" %>
+    <%= f.text_field :name, placeholder: "Name" %>
     <br/>
     <br/>
     <%= f.text_area :description, placeholder: "Description" %>

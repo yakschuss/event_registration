@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'charges/create'
 
-#  resources :attendees, only: [:new, :create] do
+ resources :attendees, only: [:new, :create] 
 #    resources :tickets, only: [:new, :create]
 #  end
 
