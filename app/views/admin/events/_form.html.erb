@@ -16,10 +16,11 @@
 
         <%= ticket_type_form.label :price %>
         <%= ticket_type_form.number_field :cost %>
-        <span class="fa fa-plus-circle fa-1.5x ticket-form-add"></span>
-      </li>
 
+      </li>
     </ul>
+    <span class="fa fa-plus-circle fa-1.5x ticket-form-add"></span>
+    <br/>
     <% end %>
     <br/>
     <%= f.submit :save, class: "button" %>

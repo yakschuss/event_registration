@@ -5,15 +5,17 @@
     <%= f.text_field :company, placeholder: "Company" %>
   <div class="actions">
     <div class="spacer"></div>
-    <%# f.submit :save, class: "button" %>
   </div>
 
+  <%# @event.name %>
     <%= f.fields_for :ticket do |ticket_field| %>
     <ul class="ticket-type-group">
       <li class="ticket-form">
-
+        <%# ticket_field.select @event.ticket_types %>
+        <%# render selected ticket_type cost %>
 
       </li>
     </ul>
     <% end %>
+    <%# f.submit "Pay Now", class: "button" (callback here) %>
 <% end %>

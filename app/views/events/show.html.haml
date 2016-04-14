@@ -9,6 +9,6 @@
     Location: #{@event.location}
   %p
     Image:
-
-.button-path
-  = link_to "Get Ticket", new_attendee_path, class: "button"
+    %br/
+    .button-path
+      = link_to "Get Ticket", new_event_ticket_path(@event), class: "button"

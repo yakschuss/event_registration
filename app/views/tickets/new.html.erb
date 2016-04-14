@@ -1,0 +1,16 @@
+<h1>Tickets#new</h1>
+<p>Find me in app/views/tickets/new.html.erb</p>
+<%= @event.name %>
+<% @event.ticket_types.each do |t| %>
+  <%= "#{t.level}" + ": " + "#{t.cost}" %>
+  <% end %>
+
+
+
+
+<%= form_for [@event, @ticket] do |f| %>
+
+<%= f.select :ticket_type_id, @event.ticket_types.map {|t| t.level } %>
+
+  <%# f.hidden_field_tag :price_paid, value: @event.ticket_types.selected.cost %>
+<% end %>
