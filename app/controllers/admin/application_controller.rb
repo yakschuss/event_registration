@@ -1,12 +1,12 @@
 class Admin::ApplicationController < ActionController::Base
-protect_from_forgery with: :exception
+#protect_from_forgery with: :exception
 
 
 layout 'admin'
 
 
 
-private
+
 
 def require_sign_in
   unless current_user

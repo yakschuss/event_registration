@@ -1,5 +1,5 @@
 class Admin::EventsController < Admin::ApplicationController
-before_action :require_sign_in
+#before_action :require_sign_in
 
   def index
     @events = Event.all
@@ -15,7 +15,7 @@ before_action :require_sign_in
 
   def create
     @event = Event.create(event_params)
-
+    create_ticket_types
     if @event.save
       flash[:notice] = "Event was created successfully."
       redirect_to admin_event_path(@event)
@@ -58,6 +58,18 @@ before_action :require_sign_in
     end
 
   private
+
+  def create_ticket_types
+    ticket_type_params.each do |ticket_type_params|
+      @event.ticket_types.create(ticket_type_params)
+    end
+  end
+
+  def ticket_type_params
+    params[:ticket_types].map do |ticket_type|
+      ticket_type.permit(:level, :cost)
+    end
+  end
 
   def event_params
     params.require(:event).permit(:name, :date, :description)
