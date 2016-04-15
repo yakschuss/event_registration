@@ -1,16 +1,28 @@
-<h1>Tickets#new</h1>
-<p>Find me in app/views/tickets/new.html.erb</p>
-<%= @event.name %>
-<% @event.ticket_types.each do |t| %>
-  <%= "#{t.level}" + ": " + "#{t.cost}" %>
+<div class="container">
+
+  <h1><%= @event.name %></h1>
+
+
+
+  <%= form_for [@event, @ticket] do |f| %>
+
+  <%= f.select :ticket_type_id, @event.ticket_types.map {|t| [ "#{t.level} - #{number_to_currency(t.cost)}", t.id] } %>
+  <br/>
+    <%# f.hidden_field_tag :price_paid, value: @event.ticket_types.selected.cost %>
+  <br/>
+  exp year:     <%= text_field_tag "stripe_charge[exp_year]" %>
+  exp month:    <%= text_field_tag "stripe_charge[exp_month]" %>
+  CC:           <%= text_field_tag "stripe_charge[number]" %>
+  CVC:          <%= text_field_tag "stripe_charge[cvc]" %></br>
+
+
+
+                <%= text_field_tag "ticket[attendee_attributes[first_name]]", nil, placeholder: "First Name" %></br>
+                <%= text_field_tag "ticket[attendee_attributes[last_name]]", nil, placeholder: "Last Name" %></br>
+                <%= email_field_tag "ticket[attendee_attributes[email]]", nil, placeholder: "Email" %></br>
+                <%= text_field_tag "ticket[attendee_attributes[company]]", nil, placeholder: "Company" %>
+
+                <%= submit_tag "submit", class: "button" %>
   <% end %>
 
-
-
-
-<%= form_for [@event, @ticket] do |f| %>
-
-<%= f.select :ticket_type_id, @event.ticket_types.map {|t| t.level } %>
-
-  <%# f.hidden_field_tag :price_paid, value: @event.ticket_types.selected.cost %>
-<% end %>
+</div>

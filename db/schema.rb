@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160414180713) do
   end
 
   create_table "ticket_types", force: :cascade do |t|
-    t.decimal  "cost"
+    t.integer  "cost"
     t.string   "level"
     t.integer  "event_id"
     t.datetime "created_at", null: false
@@ -52,7 +52,8 @@ ActiveRecord::Schema.define(version: 20160414180713) do
     t.integer  "attendee_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.decimal  "price_paid"
+    t.integer  "price_paid"
+    t.integer  "event_id"
   end
 
 end
