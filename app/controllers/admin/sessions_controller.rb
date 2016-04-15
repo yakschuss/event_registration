@@ -23,7 +23,7 @@ class Admin::SessionsController < Admin::ApplicationController
   end
 
 private
-  
+
   def create_session(admin)
     session[:admin_id] = admin.id
   end
@@ -32,8 +32,6 @@ private
     session[:admin_id] = nil
   end
 
-  def current_user
-    Admin.find_by(id: session[:admin_id])
-  end
+
 
 end

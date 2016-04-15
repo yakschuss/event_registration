@@ -1,0 +1,9 @@
+.container
+  .attendee-new
+    = link_to "New Attendee", new_admin_attendee_path(@attendee), class: "button form-button"
+  .attendee-list
+    %ul
+      - @attendees.each do |attendee|
+        %li
+          = "Date Purchased: #{attendee.created_at.strftime("%d %b. %Y")} -"
+          = link_to "#{attendee.first_name} #{attendee.last_name}", admin_attendee_path(attendee)

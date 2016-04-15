@@ -1,0 +1,20 @@
+<div class="container">
+
+<a href="#" onclick="window.print();return false;">Print This Page <span class="fa fa-print fa-1.5x"></span></a>
+
+  <h1>Your Ticket Info</h1>
+
+  <p>Event: <small><%= @ticket.event.name %></small></p>
+  <p>Event Date: <small><%= @ticket.event.date %></small></p>
+
+  <p>Name: <small><%= @ticket.attendee.first_name %> <%= @ticket.attendee.last_name %></small></p>
+
+  <p>Price Paid: <small><%= @ticket.to_dollars(@ticket.price_paid)  %> paid</small></p>
+
+
+  <h4>
+    Do not lose your confirmation code! You need it to get into the event!
+  </h4>
+  <p>Confirmation Code: <small><%= @ticket.token %></small></p>
+
+</div>

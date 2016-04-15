@@ -1,5 +1,6 @@
 class Admin::AttendeesController < Admin::ApplicationController
   before_action :require_sign_in
+
   def index
     @attendees = Attendee.all
   end
@@ -60,5 +61,12 @@ class Admin::AttendeesController < Admin::ApplicationController
 
   def attendee_params
     params.require(:attendee).permit(:first_name, :last_name, :email, :company)
+  end
+
+  def require_sign_in
+    unless current_user
+      flash[:error] = "You must be logged in to do that"
+      redirect_to new_admin_session_path
+    end
   end
 end

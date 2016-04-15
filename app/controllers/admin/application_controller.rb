@@ -6,7 +6,9 @@ layout 'admin'
 
 
 
-
+def current_user
+  Admin.find_by(id: session[:admin_id])
+end
 
 def require_sign_in
   unless current_user
