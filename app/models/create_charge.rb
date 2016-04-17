@@ -2,6 +2,7 @@ class CreateCharge
   attr_reader :amount, :source
 
   def initialize(amount, source)
+  #  raise if source.empty? || source.nil? 
     @amount = amount
     @source = source
   end

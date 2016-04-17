@@ -5,7 +5,7 @@
 
 
 $(document).ready(function(){
-  $('.ticket-form-add').addEventListener('click', function(){
+  $('.ticket-form-add').bind('click', function(){
     $('.ticket-form').clone().appendTo('.ticket-type-group');
   });
 })
