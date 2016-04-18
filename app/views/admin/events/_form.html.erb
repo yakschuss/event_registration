@@ -1,0 +1,29 @@
+<div class="form">
+  <div class="form-group-columns">
+  <%= form_for [:admin, @event]  do |f| %>
+    <%= f.text_field :name, placeholder: "Name" %>
+    <br/>
+    <br/>
+    <%= f.text_area :description, placeholder: "Description" %>
+    <br/>
+    <%= f.date_select(:date , :start_year => 2016) %>
+    <br/>
+    <%= f.fields_for :ticket_types do |ticket_type_form| %>
+    <ul class="ticket-type-group">
+      <li class="ticket-form">
+        <%= ticket_type_form.label :type %>
+        <%= ticket_type_form.text_field :level %>
+
+        <%= ticket_type_form.label :price %>
+        <%= ticket_type_form.number_field :cost %>
+          <%# TODO Want to duplicate this to allow for multiple ticket_type param sets. %>
+      </li>
+    </ul>
+    <span class="fa fa-plus-circle fa-1.5x ticket-form-add"></span>
+    <br/>
+    <% end %>
+    <br/>
+    <%= f.submit :save, class: "button" %>
+  <% end %>
+  </div>
+</div>

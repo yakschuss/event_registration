@@ -1,11 +1,33 @@
 .container
-  %p
-    First Name: #{@attendee.first_name}
-  %p
-    Last Name: #{@attendee.last_name}
-  %p
-    Email: #{@attendee.email}
-  %p
-    Company: #{@attendee.company}
-  = link_to "Edit attendee", edit_admin_attendee_path(@attendee), class: "button"
-  = link_to "Delete attendee", admin_attendee_path(@attendee), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "button button-delete"
+  .column.two-thirds
+    %p
+      First Name: #{@attendee.first_name}
+    %p
+      Last Name: #{@attendee.last_name}
+    %p
+      Email: #{@attendee.email}
+    %p
+      Company: #{@attendee.company}
+
+    %br/
+      
+    = link_to "Edit attendee", edit_admin_attendee_path(@attendee), class: "button"
+    = link_to "Delete attendee", admin_attendee_path(@attendee), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "button button-delete"
+
+
+.ticket-attributes
+  .column.third.flow-opposite
+    %p
+      Ticket Id: #{@attendee.ticket.id}
+    %p
+      Ticket Type Id: #{@attendee.ticket.ticket_type_id}
+    %p
+      Attendee ID: #{@attendee.ticket.attendee_id}
+    %p
+      Price Paid: #{@attendee.ticket.to_dollars(@attendee.ticket.price_paid)}
+    %p
+      Event Id: #{@attendee.ticket.event_id}
+    %p
+      Token: #{@attendee.ticket.token}
+    %p
+      Date Purchased: #{@attendee.created_at.strftime("%d %b. %Y")}

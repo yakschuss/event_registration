@@ -1,5 +1,5 @@
 class Admin::EventsController < Admin::ApplicationController
-before_action :require_sign_in
+  before_action :require_sign_in
 
   def index
     @events = Event.all
@@ -11,6 +11,7 @@ before_action :require_sign_in
 
   def new
     @event = Event.new
+    @event.ticket_types.build
   end
 
   def create
@@ -33,6 +34,7 @@ before_action :require_sign_in
   def update
     @event = Event.find(params[:id])
     @event.assign_attributes(event_params)
+    #TODO need to enable ticket_type editing
 
     if @event.save
       flash[:notice] = "Event updated."
@@ -60,18 +62,24 @@ before_action :require_sign_in
   private
 
   def create_ticket_types
-    ticket_type_params.each do |ticket_type_params|
+    params[:event][:ticket_types_attributes].values.each do |ticket_type_params|
       @event.ticket_types.create(ticket_type_params)
     end
   end
 
-  def ticket_type_params
-    params[:ticket_types].map do |ticket_type|
-      ticket_type.permit(:level, :cost)
-    end
-  end
 
   def event_params
     params.require(:event).permit(:name, :date, :description)
+  end
+
+  def ticket_type_params
+    params.require(:event).permit(ticket_types_attributes: [:level, :cost])
+  end
+
+  def require_sign_in
+    unless current_user
+      flash[:error] = "You must be logged in to do that"
+      redirect_to new_admin_session_path
+    end
   end
 end

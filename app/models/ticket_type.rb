@@ -1,4 +1,7 @@
 class TicketType < ActiveRecord::Base
   belongs_to :event
-# belongs_to :tickets  
+
+  def to_dollars(num)
+    "$"+"#{(num/100)}"
+  end
 end

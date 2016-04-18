@@ -1,11 +1,22 @@
 .container
-  %p
-    Name: #{@event.name}
-  %p
-    Date: #{@event.date}
-  %p
-    Description: #{@event.description}
-  %p
-    Location: #{@event.location}
-  %p
-    Image:
+  .column.third
+    %p
+      Name: #{@event.name}
+    %p
+      Date: #{@event.date}
+    %p
+      Description: #{@event.description}
+    %p
+      Location: #{@event.location}
+    %p
+      Image:
+      %br/
+  .column.third
+    .button-div
+      = link_to "Get Ticket", new_event_ticket_path(@event), class: "button"
+      %p
+        Have a ticket? Get your info here.
+        = form_tag ticket_path(@ticket), method: :get
+        = text_field_tag "ticket[token]", nil, placeholder: "Confirmation Code"
+        %br/
+        = submit_tag "search"

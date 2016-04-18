@@ -2,13 +2,15 @@ Rails.application.routes.draw do
 
 
 
-  get 'charges/create'
 
-#  resources :attendees, only: [:new, :create] do
-#    resources :tickets, only: [:new, :create]
-#  end
+ resources :attendees, only: [:new, :create]
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    resources :tickets, only: [:new, :create]
+  end
+    resource :ticket, only: [:show]
+
+
   root to: 'events#index'
 
 

@@ -6,7 +6,6 @@ class Admin::SessionsController < Admin::ApplicationController
 
   def create
     admin = Admin.find_by(email: params[:session][:email].downcase)
-
     if admin && admin.authenticate(params[:session][:password])
       create_session(admin)
       flash[:notice] = "Welcome back"
@@ -22,6 +21,17 @@ class Admin::SessionsController < Admin::ApplicationController
     flash[:notice] = "Successfully signed out."
     redirect_to root_path
   end
+
+private
+
+  def create_session(admin)
+    session[:admin_id] = admin.id
+  end
+
+  def destroy_session(admin)
+    session[:admin_id] = nil
+  end
+
 
 
 end

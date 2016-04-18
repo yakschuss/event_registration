@@ -1,0 +1,32 @@
+<div class="container">
+
+  <h1><%= @event.name %></h1>
+  <%= form_for [@event, @ticket] do |f| %>
+
+  <div class="column third">
+    <h4>
+      First, tell us about yourself.
+    </h4>
+    <%= text_field_tag "ticket[attendee_attributes[first_name]]", nil, placeholder: "First Name" %></br>
+    <%= text_field_tag "ticket[attendee_attributes[last_name]]", nil, placeholder: "Last Name" %></br>
+    <%= email_field_tag "ticket[attendee_attributes[email]]", nil, placeholder: "Email" %></br>
+    <%= text_field_tag "ticket[attendee_attributes[company]]", nil, placeholder: "Company" %>
+  </div>
+
+  <div class="column third">
+    <h4> What kind of ticket do you want? </h4>
+    <%= f.select :ticket_type_id, @event.ticket_types.map {|t| [ "#{t.level} - #{t.to_dollars(t.cost)}", t.id] } %>
+  </div>
+
+  <div class="column third">
+    <h4>No free lunches, kid.</h4>
+    <%= text_field_tag "stripe_charge[exp_year]", nil, placeholder: "Expiration Year (last two digits!)" %></br>
+    <%= text_field_tag "stripe_charge[exp_month]", nil, placeholder: "Expiration Month" %></br>
+    <%= text_field_tag "stripe_charge[number]", nil, placeholder: "Credit Card Number" %></br>
+    <%= text_field_tag "stripe_charge[cvc]", nil, placeholder: "CVC" %></br>
+    <%= submit_tag "submit", class: "button" %>
+  </div>
+
+
+  <% end %>
+</div>
