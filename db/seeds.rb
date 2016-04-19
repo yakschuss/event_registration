@@ -11,4 +11,19 @@ attendees = Attendee.all
     )
 
 end
+
+events = Event.all
+
+(events.count+1).upto(25) do
+    #another possible method for idempotency
+    # (users.count..5).each do
+    e =  Event.create!(
+        name: Faker::Beer.name,
+        date: Faker::Date.between(2.days.ago, Date.today),
+        description: Faker::Lorem.paragraph
+    )
+
+end
+
 puts "#{attendees.count} Attendees created."
+puts "#{events.count} Events created."
